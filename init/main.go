@@ -235,7 +235,7 @@ func setupDiskSymlinks(devpath string, blk *blkInfo, err error) error {
 		return fmt.Errorf("%s: %v", devpath, err)
 	}
 	if err := diskSymlink("path", devpath, blk.hwPath); err != nil {
-		return err
+		// return err
 	}
 
 	if blk.format == "gpt" {

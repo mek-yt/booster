@@ -220,7 +220,7 @@ func handleMapperDeviceUevent(ev netlink.UEvent) error {
 	dmLinkPath := "/dev/mapper/" + info.Name // later we use /dev/mapper/NAME as a mount point
 	// setup symlink /dev/mapper/NAME -> /dev/dm-NN
 	if err := os.Symlink(devPath, dmLinkPath); err != nil {
-		return err
+		// return err
 	}
 	symlinks = append(symlinks, dmLinkPath)
 
@@ -231,7 +231,7 @@ func handleMapperDeviceUevent(ev netlink.UEvent) error {
 			return err
 		}
 		if err := os.Symlink(devPath, lvmLinkPath); err != nil {
-			return err
+			// return err
 		}
 		symlinks = append(symlinks, lvmLinkPath)
 	}
